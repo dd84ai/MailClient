@@ -57,12 +57,6 @@ namespace MailClient
                                 string base64Decoded2;
                                 byte[] data2 = System.Convert.FromBase64String(base64Encoded2);
                                 base64Decoded2 = System.Text.UTF8Encoding.UTF8.GetString(data2);
-                                string bell = new string((char)7, 1);
-                                char bell1 = '\a';
-                                char bell2 = '\u0007';
-                                base64Decoded2.Replace(bell, "0");
-                                base64Decoded2.Replace(bell1, '0');
-                                base64Decoded2.Replace(bell2, '0');
                                 Console.WriteLine(base64Decoded2);
                                 break;
                             }
