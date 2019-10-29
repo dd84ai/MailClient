@@ -56,7 +56,7 @@ namespace MailClient
                 {
                     System.IO.Directory.CreateDirectory("received");
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                 }
 

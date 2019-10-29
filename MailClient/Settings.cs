@@ -36,7 +36,7 @@ namespace MailClient
 
                 login = lines[0];
                 pass = lines[1];
-                return "login has been loaded";
+                return "Login: OK";
             }
             catch (Exception e)
             {

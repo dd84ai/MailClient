@@ -55,6 +55,12 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReadMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReadMail.Designer.cs">
+      <DependentUpon>ReadMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -67,6 +73,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MailSender.cs" />
+    <Compile Include="WriteMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteMail.Designer.cs">
+      <DependentUpon>WriteMail.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +94,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReadMail.resx">
+      <DependentUpon>ReadMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteMail.resx">
+      <DependentUpon>WriteMail.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -10,14 +10,15 @@ namespace MailClient
         {
             
         }
-
-        public void SendMail()
+        //"Name <from@gmail.com>"
+        //
+        public void SendMail(string From, string To, string Subject, string Body)
         {
             // System.Net.Mail.
-            using (var mm = new MailMessage("Name <from@gmail.com>", "dd84ai@gmail.com"))
+            using (var mm = new MailMessage(From, To))
             {
-                mm.Subject = "Mail Subject";
-                mm.Body = "Mail Body";
+                mm.Subject = Subject;
+                mm.Body = Body;
                 mm.IsBodyHtml = false;
                 using (var sc = new SmtpClient("smtp.gmail.com", 587))//587//465))
                 {

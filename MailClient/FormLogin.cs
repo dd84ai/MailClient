@@ -18,6 +18,8 @@ namespace MailClient
         public FormLogin()
         {
             InitializeComponent();
+            textBox1_Login.Text = Settings.login;
+            textBox1_Pass.Text = Settings.pass;
         }
         ~FormLogin()
         {
@@ -38,6 +40,7 @@ namespace MailClient
                 writer.WriteLine(textBox1_Login.Text);
                 writer.WriteLine(textBox1_Pass.Text);
             }
+            Settings.ReadFiles();
             this.Close();
 
         }
