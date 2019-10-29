@@ -25,7 +25,7 @@ namespace MailClient
                     sc.Timeout = 20000;
                     sc.DeliveryMethod = SmtpDeliveryMethod.Network;
                     sc.UseDefaultCredentials = false;
-                    sc.Credentials = new NetworkCredential(Filework.login, Filework.pass);
+                    sc.Credentials = new NetworkCredential(Settings.login, Settings.pass);
                     sc.Send(mm);
                 }
             }

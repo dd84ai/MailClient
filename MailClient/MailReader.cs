@@ -21,7 +21,7 @@ namespace MailClient
             {
                 //prepare pop client
                 // TODO: Replace username and password with your own credentials.
-                Pop3.Pop3MailClient DemoClient = new Pop3.Pop3MailClient("pop.gmail.com", 995, true, Filework.login, Filework.pass);
+                Pop3.Pop3MailClient DemoClient = new Pop3.Pop3MailClient("pop.gmail.com", 995, true, Settings.login, Settings.pass);
                 DemoClient.IsAutoReconnect = true;
 
                 //remove the following line if no tracing is needed
@@ -65,6 +65,8 @@ namespace MailClient
 
                 Console.WriteLine("Already email quantity: " + Files.Count().ToString());
 
+                
+
                 foreach (var Id in EmailIds)
                 {
                     DemoClient.GetRawEmail(Id, out Email);
@@ -75,6 +77,8 @@ namespace MailClient
                         file.WriteLine(Email);
                         file.Close();
                     }
+
+                    DemoClient.NOOP();
 
                 }
 
