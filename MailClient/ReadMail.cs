@@ -60,7 +60,7 @@ namespace MailClient
             {
                 string[] lines = System.IO.File.ReadAllLines(@"received\" + listBox1.SelectedItem.ToString() + ".txt");
                 string text = String.Join("\n", lines);
-                richTextBox1.Text = text;
+                // richTextBox1.Text = text;
 
                 //Delivered-To
                 for (int i = 0; i < lines.Count(); i++)
@@ -119,10 +119,69 @@ namespace MailClient
                     }
                 }
 
+
+                //BODY
+                //string[] lines = System.IO.File.ReadAllLines(@"received\0092.txt");
+                richTextBox1.Text = "";
+
+                for (int i = 0; i < lines.Count(); i++)
+                {
+                    if (lines[i].Contains("Content-Transfer-Encoding: base64") && lines[i - 1].Contains("text"))
+                    {
+                        string builder = "";
+                        for (int j = i + 1; j < lines.Count(); j++)
+                        {
+                            if (!lines[j].Contains("-") && !lines[j].Contains("."))
+                                builder += lines[j];
+                            else
+                            {
+                                string base64Encoded2 = builder;
+                                string base64Decoded2;
+                                byte[] data2 = System.Convert.FromBase64String(base64Encoded2);
+                                base64Decoded2 = System.Text.UTF8Encoding.UTF8.GetString(data2);
+                                //Console.WriteLine(base64Decoded2);
+                                richTextBox1.Text += base64Decoded2;
+                                break;
+                            }
+                        }
+                        
+                    }
+                    if (lines[i].Contains("Content-Transfer-Encoding: quoted-printable") || ((lines[i].Contains("Content-Type: text/") && (!lines[i+1].Contains("Encoding") && (!lines[i - 1].Contains("Encoding"))))))
+                    {
+                        string builder = "";
+                        for (int j = i + 1; j < lines.Count(); j++)
+                        {
+                            if (!lines[j].Contains("Content-Type:") && !lines[j].Contains("--"))//lines[j] != "." && 
+                                builder += lines[j] + "\n";
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        richTextBox1.Text += builder;
+                    }
+
+                }
+
             }
             catch (Exception e3)
             {
                 MessageBox.Show("Error: " + e3.Message);
+            }
+        }
+
+        private void button1_TrueForm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] lines = System.IO.File.ReadAllLines(@"received\" + listBox1.SelectedItem.ToString() + ".txt");
+                string text = String.Join("\n", lines);
+                var temp = new ReadMail_TrueForm(text);
+                temp.ShowDialog();
+            }
+            catch (Exception er34)
+            {
+                MessageBox.Show("Error: " + er34.Message);
             }
         }
     }

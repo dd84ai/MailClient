@@ -61,6 +61,12 @@
     <Compile Include="ReadMail.Designer.cs">
       <DependentUpon>ReadMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReadMail_TrueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReadMail_TrueForm.Designer.cs">
+      <DependentUpon>ReadMail_TrueForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -96,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="ReadMail.resx">
       <DependentUpon>ReadMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReadMail_TrueForm.resx">
+      <DependentUpon>ReadMail_TrueForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WriteMail.resx">
       <DependentUpon>WriteMail.cs</DependentUpon>
