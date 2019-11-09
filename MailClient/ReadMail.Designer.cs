@@ -38,6 +38,7 @@
             this.label4_To = new System.Windows.Forms.Label();
             this.label4_Subject = new System.Windows.Forms.Label();
             this.button1_TrueForm = new System.Windows.Forms.Button();
+            this.button1_Del = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -140,11 +141,23 @@
             this.button1_TrueForm.UseVisualStyleBackColor = true;
             this.button1_TrueForm.Click += new System.EventHandler(this.button1_TrueForm_Click);
             // 
+            // button1_Del
+            // 
+            this.button1_Del.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1_Del.Location = new System.Drawing.Point(688, 12);
+            this.button1_Del.Name = "button1_Del";
+            this.button1_Del.Size = new System.Drawing.Size(48, 29);
+            this.button1_Del.TabIndex = 10;
+            this.button1_Del.Text = "Del";
+            this.button1_Del.UseVisualStyleBackColor = true;
+            this.button1_Del.Click += new System.EventHandler(this.button1_Del_Click);
+            // 
             // ReadMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1_Del);
             this.Controls.Add(this.button1_TrueForm);
             this.Controls.Add(this.label4_Subject);
             this.Controls.Add(this.label4_To);
@@ -174,5 +187,6 @@
         private System.Windows.Forms.Label label4_To;
         private System.Windows.Forms.Label label4_Subject;
         private System.Windows.Forms.Button button1_TrueForm;
+        private System.Windows.Forms.Button button1_Del;
     }
 }

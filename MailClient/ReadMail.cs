@@ -184,5 +184,29 @@ namespace MailClient
                 MessageBox.Show("Error: " + er34.Message);
             }
         }
+        void UpdateUserBox()
+        {
+            listBox1.Items.Clear();
+            DirectoryInfo d = new DirectoryInfo(@"received");//Assuming Test is your Folder
+            FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files
+
+            listBox1.Items.AddRange(Files.Select(x => x.Name).Select(x => x.Replace(".txt", "")).ToArray());
+
+        }
+        private void button1_Del_Click(object sender, EventArgs e)
+        {
+            string Adress = Directory.GetCurrentDirectory() + "\\received\\" + listBox1.SelectedItem.ToString().Replace("\\", "") + ".txt";
+
+                try
+                {
+                    File.Delete(Adress);
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
+
+            UpdateUserBox();
+        }
     }
 }

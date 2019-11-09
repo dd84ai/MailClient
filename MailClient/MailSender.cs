@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Mail;
-
+using System.Diagnostics;
 namespace MailClient
 {
     public class MailSender
@@ -14,7 +14,8 @@ namespace MailClient
         //
         public void SendMail(string From, string To, string Subject, string Body)
         {
-            // System.Net.Mail.
+           
+
             using (var mm = new MailMessage(From, To))
             {
                 mm.Subject = Subject;
@@ -26,6 +27,7 @@ namespace MailClient
                     sc.Timeout = 20000;
                     sc.DeliveryMethod = SmtpDeliveryMethod.Network;
                     sc.UseDefaultCredentials = false;
+                    
                     sc.Credentials = new NetworkCredential(Settings.login, Settings.pass);
                     sc.Send(mm);
                 }
